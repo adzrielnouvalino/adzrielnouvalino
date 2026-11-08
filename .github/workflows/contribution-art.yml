@@ -58,9 +58,6 @@ jobs:
           python3 -m http.server 8000 --bind 127.0.0.1 &
           sleep 2
 
-      - name: Convert SVG to GIF
-        run: node scripts/render-svg-gifs.mjs
-
 
       - name: Enable infinite animation loop
         run: |
@@ -107,6 +104,10 @@ jobs:
               print(f"Updated animation loop: {file}")
 
           PY
+
+
+      - name: Convert SVG to GIF
+        run: node scripts/render-svg-gifs.mjs
 
      
       - name: Publish animations
