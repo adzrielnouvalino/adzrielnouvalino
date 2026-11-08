@@ -40,6 +40,27 @@ jobs:
           food_count: "5"
           palette: "auto"
 
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install rendering tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          npm install playwright
+          npx playwright install --with-deps chromium
+
+      - name: Start local server
+        run: |
+          python3 -m http.server 8000 --bind 127.0.0.1 &
+          sleep 2
+
+      - name: Convert SVG to GIF
+        run: node scripts/render-svg-gifs.mjs
+
       - name: Publish animations
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
