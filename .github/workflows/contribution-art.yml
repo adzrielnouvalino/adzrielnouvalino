@@ -61,6 +61,34 @@ jobs:
       - name: Convert SVG to GIF
         run: node scripts/render-svg-gifs.mjs
 
+
+      - name: Enable infinite animation loop
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          for file in Path("dist").glob("*.svg"):
+              content = file.read_text()
+
+              def enable_loop(match):
+                  tag = match.group(0)
+
+                  if "repeatCount=" in tag:
+                      return tag
+
+                  return tag[:-1] + ' repeatCount="indefinite">'
+
+              content = re.sub(
+                  r'<animate(?:Transform|Motion)?\b[^>]*>',
+                  enable_loop,
+                  content
+              )
+
+              file.write_text(content)
+              print(f"Loop enabled: {file}")
+          PY
+
       - name: Publish animations
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
