@@ -74,21 +74,41 @@ jobs:
               def enable_loop(match):
                   tag = match.group(0)
 
-                  if "repeatCount=" in tag:
-                      return tag
+                  # Ganti repeatCount yang sudah ada
+                  tag = re.sub(
+                      r'\brepeatCount\s*=\s*"[^"]*"',
+                      'repeatCount="indefinite"',
+                      tag
+                  )
 
-                  return tag[:-1] + ' repeatCount="indefinite">'
+                  tag = re.sub(
+                      r"\brepeatCount\s*=\s*'[^']*'",
+                      'repeatCount="indefinite"',
+                      tag
+                  )
+
+                  # Jika belum ada, tambahkan atribut
+                  if "repeatCount=" not in tag:
+                      if tag.endswith("/>"):
+                          tag = tag[:-2] + ' repeatCount="indefinite"/>'
+                      else:
+                          tag = tag[:-1] + ' repeatCount="indefinite">'
+
+                  return tag
 
               content = re.sub(
-                  r'<animate(?:Transform|Motion)?\b[^>]*>',
+                  r'<(?:animate|animateTransform|animateMotion|set)\b[^>]*>',
                   enable_loop,
                   content
               )
 
               file.write_text(content)
-              print(f"Loop enabled: {file}")
+
+              print(f"Updated animation loop: {file}")
+
           PY
 
+     
       - name: Publish animations
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
