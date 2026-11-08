@@ -1,9 +1,9 @@
 
 <div align="center">
 
-# Adzriel Nouvalino
+# Adzriel Nouvalino Tyasman
 
-### Backend Developer | Cloud Enthusiast
+### Backend Developer | Tech Enthusiast
 
 *Building things, learning deeply, and growing every day.*
 
@@ -18,7 +18,7 @@
 - 🎓 Informatics Student
 - 💻 Interested in Backend Development
 - 🌱 Currently learning JavaScript, Node.js, Express.js & MySQL
-- ☁️ Exploring Cloud Computing
+- ☁️ Exploring Tech
 - 🚀 Building projects and improving my engineering skills
 
 ## ⚙️ Tech Stack
