@@ -8,6 +8,7 @@
 *Building things, learning deeply, and growing every day.*
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github)](https://github.com/adzrielnouvalino)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/adzriel-nouvalino-tyasman-3a6759347)
 
 </div>
 
