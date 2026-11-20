@@ -3,7 +3,7 @@
 
 # Adzriel Nouvalino Tyasman
 
-### Backend Developer | Tech Enthusiast
+### Backend Developer | Database Engineer
 
 *Building things, learning deeply, and growing every day.*
 
